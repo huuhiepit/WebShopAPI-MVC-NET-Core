@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "_LayoutCustomer";
+    ViewData["Title"] = "Giỏ hàng";
+}
+<!--End: header-->
+<!--Begin: Cart-->
+<div class="container">
+    <div class="link_prev-item">
+        <a href="index.html" class=""><i class="mr-12 fa-solid fa-house-chimney"></i><span>Home</span></a>
+        <a href="cart.html" class="">Giỏ hàng</a> 
+    </div>
+    <div class="cart_name">
+        Shopping cart
+    </div>
+    <section class="cart_container">
+        <div class="cart_header">
+            <div class="cart_header-item">
+                <input class="cart_header-item-checkbox" type="checkbox" title="Chọn tất cả">
+            </div>
+            <div class="cart_header-item" title="Xóa"><i class="cart_header-item-delete fa-solid fa-trash"></i></div>
+        </div>
+        <div class="cart_body">
+            <div class="cart_item">
+                <div class="cart_item-checkbox mr-12" title="Chọn">
+                    <input type="checkbox">
+                </div>
+                <div class="cart_item-img mr-12" title="Ảnh sản phẩm"><img src="/static/img/image1.jpg" alt="sanpham.jpg" class="cart_item-img-link" ></div>
+                <div class="cart_item-title mr-12" title="Tên sản phẩm">Áo thu</div>
+                <input class="cart_item-quantity mr-12 ml-64" type="number" value="1" min="0" title="Số lượng mua">
+                <span class="cart_item-price mr-12 ml-64" title="Giá sản phẩm">255,000₫</span>
+                <a class="cart_item-save ml-64" href="#" title="Save"><i class="fa-solid fa-pen-to-square"></i></a>
+            </div>
+                    
+            <div class="cart_item">
+                <div class="cart_item-checkbox mr-12" title="Chọn">
+                    <input type="checkbox">
+                </div>
+                <div class="cart_item-img mr-12" title="Ảnh sản phẩm"><img src="/static/img/image3.jpg" alt="sanpham.jpg" class="cart_item-img-link" ></div>
+                <div class="cart_item-title mr-12" title="Tên sản phẩm">Áo thu</div>
+                <input class="cart_item-quantity mr-12 ml-64" type="number" value="1" min="0" title="Số lượng mua">
+                <span class="cart_item-price mr-12 ml-64" title="Giá sản phẩm">255,000₫</span>
+                <a class="cart_item-save ml-64" href="#" title="Save"><i class="fa-solid fa-pen-to-square"></i></a>
+            </div>
+        </div>
+        <div class="cart-footer">
+            Tổng cộng: <span class="cart_sum-price">510,000₫</span>
+            <a href="#" data-toggle="modal" data-target="#paymentModal" class="cart_payment">Thanh toán</a>
+        </div>
+    </section>
+</div>
+
+<!--End: Cart-->
+<!--Begin: Modal Payment-->
+
+<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thanh toán</h5>
+                           
+                </div>
+            </div>
+        </div>
+    </div>
+<!--End: Modal Payment-->

@@ -1,0 +1,60 @@
+﻿@{
+    Layout = "_LayoutCustomer";
+    ViewData["Title"] = "Giỏ hàng";
+}
+
+<!--Begin: Detail Product-->
+<div class="container">
+    <div class="link_prev-item">
+        <a href="index.html" class=""><i class="mr-12 fa-solid fa-house-chimney"></i><span>Home</span></a>
+        <a href="detail.html" class=""><span>Xem sản phẩm</span></a>
+        <a href="#">Áo thu</a>
+    </div>
+
+    <div class="grid">
+        <div class="grid-column-2">
+            <div class="product_detail-item-img">
+                <img src="/static/img/image1.jpg" id="product_detail-img" alt="image1.jpg">
+            </div>
+
+            <div class="product_detail-list-img">
+                <img onclick="changeImage('image1.jpg')" src="/static/img/image1.jpg" alt="image.jpg">
+                <img onclick="changeImage('image2.jpg')" src="/static/img/image2.jpg" alt="image.jpg">
+                <img onclick="changeImage('image3.jpg')" src="/static/img/image3.jpg" alt="image.jpg">
+                <img onclick="changeImage('image4.jpg')" src="/static/img/image4.jpg" alt="image.jpg">
+            </div>
+        </div>
+        <div class="grid-column-2"><div class="div"></div>
+            <p class="product_detail-item-title mb-64">
+                Áo khoác mùa xuân hạ thu đông như trong tôi
+            </p>
+            <div class="product_detail-item-price mb-64">
+                Giá tiền:
+                <span class="product_detail_price-current">250,000₫</span>
+                <span class="product_detail_price-old">295,000₫</span>
+                <span class="product_detail_sale">Giảm sốc 10%</span>  
+            </div>
+            <div class="product_detail-list-size mb-64">
+                <span>M</span>
+                <span>L</span>
+                <span>XL</span>
+            </div>
+            <div class="product_detail-list-color mb-64">
+                <span>Đen</span>
+                <span>Trắng</span>
+                <span>Xanh thẵm</span>
+            </div>
+            <div class="product_detail-item-quantity mb-64">
+                <span>-</span>
+                <input type="number" value="1" min="1">
+                <span>+ </span>
+            </div>
+            <div class="product_detail-item-action mb-64">
+                <a href="#">Thêm vào giỏ hàng</a>
+                <a href="#">Mua ngay</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--End: Detail Product-->

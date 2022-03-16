@@ -1,0 +1,153 @@
+﻿@{
+    Layout = "_LayoutAdminLR";
+    ViewData["Title"] = "Register";
+}
+
+<div class="row">
+    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+    <div class="col-lg-7">
+        <div class="p-5">
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+            </div>
+                <form class="user">
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" name="txtFirstName"
+                                placeholder="First Name">
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control form-control-user" name="txtLastName"
+                                placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control form-control-user" name="txtEmail"
+                            placeholder="Email Address">
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="number" class="form-control form-control-user" name="txtPhone"
+                                placeholder="Phone Number">
+                        </div>
+                        <div class="col-sm-6">
+                            <select class="form-control form-control-user" style="padding: 0;height: 50px;" name="txtChucVu" >
+                                <option value="">Lựa chọn chức vụ</option>
+                                <option value=false>Nhân viên</option>
+                                <option value=true>Quản lý</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-user" name="txtDiaChi"
+                            placeholder="Address">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-user" placeholder="UserName" name="txtUser">
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="password" class="form-control form-control-user"
+                                name="txtPassword" placeholder="Password">
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control form-control-user"
+                                name="txtRepeatPassword" placeholder="Repeat Password">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="btnRegister">
+                        Register Account
+                    </button>
+                    <hr>
+                    <a href="#" class="btn btn-google btn-user btn-block">
+                        <i class="fab fa-google fa-fw"></i> Register with Google
+                    </a>
+                    <a href="#" class="btn btn-facebook btn-user btn-block">
+                        <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                    </a>
+                </form>
+            <hr>
+            <div class="text-center">
+                <a class="small" href="#">Forgot Password?</a>
+            </div>
+            <div class="text-center">
+                <a class="small" href="/Admin/Login">Already have an account? Login!</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        var date = new Date();
+
+        $(document).ready(function () {
+            handleRegisterAdmin();
+            Clear();
+        });
+
+        function handleRegisterAdmin() {
+            var RegisterBtn = document.querySelector('#btnRegister');
+
+            RegisterBtn.onclick = function () {
+
+                var pass = $('input[name="txtPassword"]').val();
+                var repeatPass = $('input[name="txtRepeatPassword"]').val();
+
+                if (pass != repeatPass) {
+
+                    $.notify("Password và ReapeatPass không trùng nhau, vui lòng thử lại.", { className: "error", position: "top center" });
+                    ClearPass();
+
+                } else {
+                    var adminObj = {};
+                    adminObj.hovaTen = $('input[name="txtLastName"]').val() + ' ' + $('input[name="txtFirstName"]').val();
+                    adminObj.email = $('input[name="txtEmail"]').val();
+                    adminObj.sdt = $('input[name="txtPhone"]').val();
+                    adminObj.diaChi = $('input[name="txtDiaChi"]').val();
+                    adminObj.userName = $('input[name="txtUser"]').val();
+                    adminObj.passWord = $('input[name="txtPassword"]').val();
+                    if ($('select[name="txtChucVu"]').val() == true) {
+                        adminObj.chucVu = true;
+                    } else adminObj.chucVu = false;
+             
+                    adminObj.ngayTao = date;
+
+                    $.ajax({
+                        url: "https://localhost:7001/api/Admin/Register",
+                        method: "POST",
+                        dataType: "JSON",
+                        contentType: "application/json",
+                        data: JSON.stringify(adminObj),
+                        success: function (data) {
+                            location.href = "/Admin/Login";
+                        },
+                        error: function () {
+                            $.notify("Thêm mới tài khoản admin thất bại", { className: "error", position: "top center" });
+                            ClearPass();
+                        }
+                    });
+                }
+
+
+            };
+        }
+
+        function Clear() {
+            $('input[name="txtFirstName"]').val('');
+            $('input[name="txtLastName"]').val('');
+            $('input[name="txtEmail"]').val('');
+            $('input[name="txtPhone"]').val('');
+            $('input[name="txtDiaChi"]').val('');
+            $('input[name="txtUser"]').val('');
+            $('input[name="txtPassword"]').val('');
+            $('select[name="txtChucVu"]').val('');
+            $('input[name="txtRepeatPassword"]').val('');
+        }
+
+        function ClearPass() {
+            $('input[name="txtPassword"]').val('');
+            $('input[name="txtRepeatPassword"]').val('');
+        }
+    </script>
+}

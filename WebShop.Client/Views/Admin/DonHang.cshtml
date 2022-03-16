@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Đơn hàng";
+}
+<!-- Page Heading -->
+
+<h1 class="h3 mb-2 text-gray-800">Đơn Hàng</h1>
+
+<!--Update TrangThai-->
+<select class="select-donhang" id="trangthai" onchange="TrangThaiChanged(this)">
+    <option value="False">Chưa duyệt</option>
+    <option value="True">Đã duyệt</option>
+</select>
+<!-- DataTales Example -->
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3 row">
+        <h6 class="m-0 font-weight-bold text-primary">Bảng danh sách đơn hàng</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+                                
+            <table class="table table-bordered" id="dataTableDonHang" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th width="30">STT</th>
+                        <th width="96">Mã Đơn hàng</th>
+                        <th width="98">Mã khách hàng</th>
+                        <th width="96">Ngày Đặt hàng</th>           
+                        <th width="132">Khách hàng</th>
+                        <th width="68">Sdt</th>
+                        <th width="132">Địa chỉ</th>
+                        <th width="82">Trạng thái</th>
+                        <th width="132">Details</th>
+                        <th width="50">Delete</th>
+                    </tr>
+                 </thead>
+                <tbody id="load_Data_DonHang">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+   
+ <!-- View Don Hang Modal -->
+<div class="modal fade" id="ViewDonHangModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 1086px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="title-ctdh"></h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>          
+            <div class="table-responsive card-body" style="overflow: auto;">
+                <table class="table table-bordered" id="dataTableViewCTDH" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Image</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Size</th>
+                            <th>Màu sắc</th>
+                            <th>Số lượng</th>
+                            <th>Giá</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list-View-DonHang">
+                        
+                    </tbody>
+                </table>
+            </div>
+   
+        </div>
+    </div>
+</div>
+
+<script src="~/Script/Admin/DonHang.js"></script>

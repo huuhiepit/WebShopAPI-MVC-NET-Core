@@ -1,0 +1,80 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Nhân viên";
+}
+<!-- Page Heading -->
+
+<h1 class="h3 mb-2 text-gray-800">Nhân viên</h1>
+
+<!-- DataTales Example -->
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3 row">
+        <h6 class="m-0 font-weight-bold text-primary">Bảng danh sách Nhân viên</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+                                
+            <table class="table table-bordered" id="dataTable-Admin" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Họ và tên</th>
+                        <th>Địa chỉ</th>
+                        <th>Số điện thoại</th>
+                        <th>Email</th>
+                        <th>UserName</th>
+                        <th>Chức vụ</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+   
+                <tbody id="load_Data_Admin">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--Modal Update Nhan vien-->
+
+<div class="modal fade" id="updateAdminModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm mới Nhân viên</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label>Tên Nhân viên:</label><br>
+                <input type="text" class="form-control bg-light border-7 small" name="txtHovaTen" placeholder="Nhập tên Nhân viên">
+                <label>Địa chỉ:</label><br>
+                <input type="text" class="form-control bg-light border-7 small" name="txtDiaChi" placeholder="Nhập địa chỉ">
+                <label>Số điện thoại:</label><br>
+                <input type="tel" class="form-control bg-light border-7 small" name="txtSdt" placeholder="Nhập số điện thoại">
+                <label>Email:</label><br>
+                <input type="email" class="form-control bg-light border-7 small" name="txtEmail" placeholder="Nhập email">
+                <label>Username:</label>
+                <input type="text" class="form-control bg-light border-7 small" name="txtUserName" placeholder="Nhập username">
+                <label>Password:</label>
+                <input type="password" class="form-control bg-light border-7 small" name="txtPassWord" placeholder="Nhập password">
+                <label>Chức vụ:</label>
+                <select class="form-control bg-light border-7 small" name="txtChucVu">
+                    <option value="Quản lý" >Quản lý</option>
+                    <option value="Nhân viên" >Nhân viên</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal" onclick="Clear()">Cancel</button>
+                <button class="btn btn-primary" id="updateAdmin">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Script/Admin/Admin.js"></script>

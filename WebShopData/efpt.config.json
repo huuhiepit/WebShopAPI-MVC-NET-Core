@@ -1,0 +1,103 @@
+﻿{
+   "CodeGenerationMode": 2,
+   "ContextClassName": "WebshopdbContext",
+   "ContextNamespace": "Data",
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": "Models",
+   "OutputContextPath": "Data",
+   "OutputPath": "Models",
+   "ProjectRootNamespace": "WebShopData",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[Admin]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ChiTietDonHang]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ChiTietSanPham]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DonHang]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[KhachHang]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[KhuyenMai]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MauSac]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SanPham]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Size]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TheLoai]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[View_CTDonHang]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[View_CTSanPham]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[View_DoanhThu]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[View_DonHang]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[View_LichSuMuaHang]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[View_SanPham]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[View_SanPhamBanChay]",
+         "ObjectType": 3
+      }
+   ],
+   "UiHint": "H-AITD201912003\\SQLEXPRESS.WebshopDB",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}

@@ -1,0 +1,88 @@
+﻿@{
+    Layout = "_LayoutCustomer";
+    ViewData["Title"] = "Trang chủ";
+}
+
+<!--Begin: Slide-->
+<div class="slideshow-container">
+    <!-- Kết hợp hình ảnh và nội dung cho mội phần tử trong slideshow-->
+        <div class="mySlides fade">
+        <img src="~/img/slide/slide.jpg">
+        </div>
+    <div class="mySlides fade">
+        <img src="~/img/slide/slide1.jpg">
+        </div>
+    <div class="mySlides fade">
+        <img src="~/img/slide/slide2.jpg">
+        </div>
+    <!-- Nút điều khiển mũi tên-->
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+    <div class="slideshow-dot">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+</div>
+<!--End: Slide-->      
+<!--Begin: Products-->
+<h3 class="product_category-name" id="title_theloai"></h3>
+<section class="container-product" >
+    <div class="row" id="list_Products">
+     
+    </div>                      
+</section>
+<ul class="pagination" id="pagination">
+</ul>
+<div id="backtop">
+    <i class="backtop-icon fa-solid fa-arrow-up"></i>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+    //Auto slide
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName('mySlides');
+            for(i=0; i < x.length; i++){
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if(myIndex > x.length) { myIndex = 1 }
+            x[myIndex-1].style.display = 'block';
+            setTimeout(carousel, 6000);
+        }
+
+        //Click slide
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+
+
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active";
+        }
+    </script>
+}
