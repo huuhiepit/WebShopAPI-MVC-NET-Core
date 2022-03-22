@@ -12,11 +12,11 @@
             <form action="#" class="user" method="post" id="adminLogin" onsubmit="return false">
                 <div class="form-group">
                     <input type="text" class="form-control form-control-user" id="username"
-                        placeholder="UserName" name="txtUser" pattern="[a-z]{1,15}">
+                        placeholder="UserName" name="txtUser" pattern="[a-z, 0-9]{1,15}" required>
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control form-control-user"
-                        id="exampleInputPassword" placeholder="Password" name="txtPass">
+                        id="exampleInputPassword" placeholder="Password" name="txtPass" required>
                 </div>
                 <div class="form-group">
                     <div class="custom-control custom-checkbox small">

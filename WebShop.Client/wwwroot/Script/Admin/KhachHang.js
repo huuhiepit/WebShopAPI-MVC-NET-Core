@@ -60,7 +60,7 @@ function LichSuMuaHang(id) {
             $('#dataTableViewLichSu').DataTable();
         },
         error: function (error) {
-            alert(error);
+            $.notify("Lỗi: " + error.responseText, { className: "error", position: "top center" });
         }
     });
 }
@@ -79,8 +79,8 @@ function DeleteKhachHang(id, name) {
                 }
                 $.notify("Xóa khách hàng thành công", { className: "success", position: "top center" });
             },
-            error: function () {
-                $.notify("Xóa khách hàng thất bại", { className: "error", position: "top center" });
+            error: function (error) {
+                $.notify("Xóa khách hàng thất bại. Lỗi " + error.responseText, { className: "error", position: "top center" });
             }
         });
     }

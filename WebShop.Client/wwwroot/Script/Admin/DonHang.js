@@ -54,12 +54,11 @@ function handleDoiTrangThaiDH(id) {
             dataType: 'json',
             contentType: 'application/json',
             data: JSON.stringify(TrangThaiObj),
-            success: function (data) {
-                $.notify("Duyệt đơn hàng thành công", { className: "success", position: "top center" });
-                LoadDonHang(false);
+            success: function () {
             },
             error: function () {
-                $.notify("Duyệt đơn hàng thất bại", { className: "error", position: "top center" });
+                $.notify("Duyệt đơn hàng thành công", { className: "success", position: "top center" });
+                LoadDonHang(false);
             }
         });
     }
@@ -80,8 +79,8 @@ function DeleteDonHang(id) {
                 }
                 $.notify("Xóa đơn hàng thành công", { className: "success", position: "top center" });
             },
-            error: function () {
-                $.notify("Xóa đơn hàng thất bại", { className: "error", position: "top center" });
+            error: function (error) {
+                $.notify("Xóa đơn hàng thất bại. Lỗi:" + error.responseText, { className: "error", position: "top center" });
             }
         });
     }
@@ -138,8 +137,8 @@ function DeleteCTDH(idctdh) {
                 }
                 $.notify("Xóa đơn hàng thành công", { className: "success", position: "top center" });
             },
-            error: function () {
-                $.notify("Xóa đơn hàng thất bại", { className: "error", position: "top center" });
+            error: function (error) {
+                $.notify("Xóa đơn hàng thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" });
             }
         });
     }

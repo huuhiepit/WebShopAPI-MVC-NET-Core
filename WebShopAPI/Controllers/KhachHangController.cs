@@ -39,6 +39,19 @@ namespace WebShopAPI.Controllers
 
             return Ok(kh);
         }
+        // Lấy thông tin một khách hàng dựa trên username
+        [HttpGet("thongtin/{username}")]
+        public async Task<ActionResult<KhachHang>> GetKhachHangUserName(string username)
+        {
+            var kh = await _khachhang.KhachHang.Where(kh => kh.UserName.Equals(username)).FirstOrDefaultAsync();
+
+            if (kh == null)
+            {
+                return BadRequest("Không tìm thấy khách hàng.");
+            }
+
+            return Ok(kh);
+        }
 
         // Lấy thông tin lịch sử mua hàng của một khách hàng
         [HttpGet("lichsumuahang/{id}")]
@@ -48,7 +61,7 @@ namespace WebShopAPI.Controllers
 
             if(lichsu == null)
             {
-                return BadRequest("Khách hàng không có lịch sử mua hàng nào");
+                return BadRequest("Khách hàng chưa có lịch sử mua hàng nào");
             }
 
             return Ok(lichsu);
@@ -89,7 +102,7 @@ namespace WebShopAPI.Controllers
                 }
                 else
                 {
-                    return BadRequest("Login Failed.");
+                    return BadRequest("Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản và mật khẩu.");
                 }
             }
             else

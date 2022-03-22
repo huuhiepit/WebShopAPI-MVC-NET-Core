@@ -78,8 +78,8 @@ function CreateProduct() {
             UploadImgProduct("txtTenAnh");
             location.reload();
         },
-        error: function () {
-            $.notify("Thêm mới một sản phẩm thất bại: ", { className: "error", position: "top center" });
+        error: function (error) {
+            $.notify("Thêm mới một sản phẩm thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" });
         }
 
     });
@@ -146,8 +146,8 @@ function handleUpdateProduct(id) {
                 LoadDataProducts();
                 Clear();
             },
-            error: function () {
-                $.notify("Sửa sản phẩm thất bại ", { className: "error", position: "top center" });
+            error: function (error) {
+                $.notify("Sửa sản phẩm thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" });
             }
         });
     };
@@ -171,7 +171,7 @@ function DeleteProduct(id) {
 
             },
             error: function (error) {
-                $.notify("Xóa sản phẩm thất bại", { className: "error", position: "top center" });
+                $.notify("Xóa sản phẩm thất bại. Lỗi" + error.responseText, { className: "error", position: "top center" });
             }
         });
     }

@@ -69,8 +69,8 @@ function handleCreateCtSanPham() {
                 UploadImg('txtTenAnh');
                 $('#createCTSPModal').modal('hide');
             },
-            error: function () {
-                $.notify("Thêm mới thất bại", { className: "error", position: "top center" });
+            error: function (error) {
+                $.notify("Thêm mới thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" });
             }
         });
     };
@@ -124,8 +124,8 @@ function handleUpdateCtSanPham(idctsp) {
                 }
                
             },
-            error: function () {
-                $.notify("Sửa thất bại", { className: "error", position: "top center" });
+            error: function (error) {
+                $.notify("Sửa thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" });
             }
         });
 
@@ -147,8 +147,8 @@ function DeleteCtSanPham(idctsp) {
                 $.notify("Xóa thành công.", { className: "success", position: "top center" });
                 $('#deleteCTSPModal').modal('hide');
             },
-            error: function () {
-                $.notify("Xóa thất bại. ", { className: "error", position: "top center" });
+            error: function (error) {
+                $.notify("Xóa thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" });
             }
         });
     }

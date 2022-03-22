@@ -26,28 +26,26 @@
                     <nav class="header__navbar">
                         <ul class="header__navbar-list">
                             <li class="header__navbar-item" title="Thông báo">
-                                <a href="#" class="header__navbar-item-link">
-                                    <i class="header__navbar-icon header__navbar-icon fas fa-bell"></i>
-                                    <span class="header__navbar-span">Thông báo</span>
+                                <a href="#" class="header__navbar-item-link">                             
+                                    <span class="header__navbar-span"><i class="fas fa-bell"></i> Thông báo</span>
                                 </a>
                             </li>
                             <li class="header__navbar-item" title="Trợ giúp">
-                                <a href="#" class="header__navbar-item-link" >
-                                    <i class="header__navbar-icon header__navbar-icon fas fa-question-circle"></i>
-                                    <span class="header__navbar-span">Trợ giúp</span>   
+                                <a href="#" class="header__navbar-item-link" >                                  
+                                    <span class="header__navbar-span"><i class="fas fa-question-circle"></i> Trợ giúp</span>   
                                 </a>
                             </li>       
-                            <li class="header__navbar-item" title="Tài khoản">
-                                <a asp-controller="Home" asp-action="Login"  class="header__navbar-item-link" >
-                                    <i class="header__navbar-icon fa-solid fa-circle-user"></i>
-                                    <span class="header__navbar-span">Tài khoản</span>        
+                            <li class="header__navbar-item" title="Tài khoản" id="Account">
+                                
+                            </li>
+                            <li class="header__navbar-item" title="Lịch sử mua hàng">
+                                <a asp-controller="Home" asp-action="LichSuMuaHang" class="header__navbar-item-link" >
+                                    <span class="header__navbar-span"><i class="fa-solid fa-cart-flatbed"></i> Lịch sử mua hàng</span>   
                                 </a>
-                            </li>        
+                            </li>  
                             <li class="header__navbar-item" title="Giỏ hàng">
-                                <a asp-controller="Home" asp-action="GioHang" class="header__navbar-item-link">
-                                    <i class="header__navbar-icon fa-solid fa-bag-shopping"></i>
-                                    <span class="header__navbar-span">Giỏ hàng
-                                        <span class="count">(0)</span>
+                                <a asp-controller="Home" asp-action="GioHang" class="header__navbar-item-link">          
+                                    <span class="header__navbar-span"><i class="fa-solid fa-bag-shopping"></i> Giỏ hàng (<span id="count"></span>)
                                     </span>        
                                 </a>
                             </li>
@@ -67,7 +65,7 @@
                         
                     </ul>               
                 </nav>
-                <form action="" method="GET" class="header__witch-search" title="Tìm kiếm">
+                <form action="/Home" method="GET" class="header__witch-search" title="Tìm kiếm">
                     
                     <input name="search" type="text" class="header__witch-search-input" placeholder="Tìm kiếm...">
                     <button name="page" value="1" id="btnSearch" class="header__search-btn" type="submit">
@@ -81,6 +79,9 @@
 
         @RenderBody();
         <!--End: Products-->
+        <div id="backtop">
+            <i class="backtop-icon fa-solid fa-arrow-up"></i>
+        </div>
         <div id="footer">
             <div class="socials-list">
                 <a href="http://facebook.com"><i class="fa-brands fa-facebook-f"></i></a>
@@ -94,11 +95,12 @@
         </div>
     </div>
 
+    
 
     <!--JavaScript-->
     <script src="~/js/main.js"></script>
-    <script src="~/Script/Customer/TrangChu.js"></script>
-    
+    <script src="~/Script/Customer/Main.js"></script>
+   
     @RenderSection("scripts", false)
 </body>
 </html>

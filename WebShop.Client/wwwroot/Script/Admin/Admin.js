@@ -1,4 +1,6 @@
-﻿var url = "https://localhost:7001/api/admin";
+﻿const { error } = require("jquery");
+
+var url = "https://localhost:7001/api/admin";
 var date = new Date();
 $(document).ready(function () {
     LoadDataAdmin();
@@ -68,8 +70,8 @@ function handleUpdateAdmin(id) {
                 $('select[name="txtChucVu"]').val("Quản lý");
             } else $('select[name="txtChucVu"]').val("Nhân viên");
         },
-        error: function () {
-            alert("Lỗi");
+        error: function (error) {
+            $.notify("Lỗi: " + error.responseText, { className: "error", position: "top center" });
         }
     });
 
@@ -102,8 +104,8 @@ function handleUpdateAdmin(id) {
                 $('#updateAdminModal').modal('hide');
                 LoadDataAdmin();
             },
-            error: function () {
-                $.notify("Sửa thất bại!", { className: "error", position: "top center" });
+            error: function (error) {
+                $.notify("Sửa thất bại!. Lỗi " + error.responseText, { className: "error", position: "top center" });
             }
         });
     }
@@ -128,7 +130,7 @@ function DeleteAdmin(id, name) {
 
             },
             error: function () {
-                $.notify("Xóa tài khoản admin thất bại.", { className: "error", position: "top center" });
+                $.notify("Xóa tài khoản admin thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" });
             }
         });
     }

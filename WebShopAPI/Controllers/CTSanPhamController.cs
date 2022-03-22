@@ -32,7 +32,7 @@ namespace WebShopAPI.Controllers
             var ctsp = await _ctSanPham.ChiTietSanPham.FindAsync(id);
             if(ctsp == null)
             {
-                return NotFound();
+                return NotFound("Không tìm thấy chi tiết sản phẩm");
             }
             return Ok(ctsp);
         }
@@ -66,7 +66,7 @@ namespace WebShopAPI.Controllers
         {
             if(CTSPExits(ctsp.IdSanPham, ctsp.IdSize, ctsp.IdMauSac))
             {
-                return NotFound();
+                return NotFound("Chi tiết sản phẩm đã tồn tại");
             }
 
             _ctSanPham.ChiTietSanPham.Add(ctsp);
@@ -81,7 +81,7 @@ namespace WebShopAPI.Controllers
         {
             if (id != ctsp.IdCtsp)
             {
-                return BadRequest();
+                return BadRequest("Không tìm thấy mã chi tiết sản phẩm");
             }
 
             _ctSanPham.Entry(ctsp).State = EntityState.Modified;
@@ -104,7 +104,7 @@ namespace WebShopAPI.Controllers
             {
                 if (CTSPExits(ctsp.IdSanPham, ctsp.IdSize, ctsp.IdMauSac))
                 {
-                    return BadRequest();
+                    return BadRequest("Chi tiết sản phẩm đã tồn tại");
                 }
                 else
                 {

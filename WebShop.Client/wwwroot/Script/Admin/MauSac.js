@@ -50,7 +50,7 @@ function CreateColor() {
             LoadDataColor();
         },
         error: function (error) {
-            $.notify("Thêm mới thất bại: " + error, { className: "error", position: "top center" });
+            $.notify("Thêm mới thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" });
         }
     });
 }
@@ -74,7 +74,7 @@ function handleUpdateColor(id) {
             $('input[name="txtTenMauSac"]').val(data.tenMauSac);
         },
         error: function (error) {
-            alert(error);
+            $.notify("Lỗi: " + error.responseText, { className: "error", position: "top center" });
         }
     });
 
@@ -96,7 +96,7 @@ function handleUpdateColor(id) {
                 LoadDataColor();
             },
             error: function (error) {
-                $.notify("Sửa thất bại: " + error, { className: "error", position: "top center" });
+                $.notify("Sửa thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" });
             }
         });
     };
@@ -113,7 +113,7 @@ function handleDeleteColor(id) {
             $('#message_delete').html(str);
         },
         error: function (error) {
-            alert(error);
+            $.notify("Xóa thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" });
         }
     });
 
@@ -136,7 +136,7 @@ function handleDeleteColor(id) {
 
             },
             error: function (error) {
-                $.notify("Xóa thất bại. " + error, { className: "error", position: "top center" });
+                $.notify("Xóa thất bại. " + error.responseText, { className: "error", position: "top center" });
             }
         });
     };

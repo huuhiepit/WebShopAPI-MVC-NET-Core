@@ -49,9 +49,9 @@ function CreateLoai() {
             $.notify("Thêm thể loại sản phẩm thành công", { className: "success", position: "top center" });
             LoadDataLoai();
         },
-        error: function () {
-            
-            $.notify("Thêm thể loại sản phẩm thất bại.", { className: "error", position: "top center" });
+        error: function (error) {
+
+            $.notify("Thêm thể loại sản phẩm thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" });
         }
     });
     
@@ -102,8 +102,8 @@ function handleUpdateLoai(id) {
                 $('#updateLoaiModal').modal('hide');
                 LoadDataLoai();
             },
-            error: function () {
-                $.notify("Sửa tên thể loại thất bại. ", { className: "success", position: "top center" })
+            error: function (error) {
+                $.notify("Sửa tên thể loại thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" })
             }
         });
     };
@@ -141,8 +141,8 @@ function handleDeleteLoai(id) {
                 $('#deleteLoaiModal').modal('hide');
                 $.notify("Xóa thể loại thành công", { className: "success", position: "top center" });
             },
-            error: function () {
-                $.notify("Xóa thể loại thất bại.", { className: "error", position: "top center" });
+            error: function (error) {
+                $.notify("Xóa thể loại thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" });
             }
         });
     };

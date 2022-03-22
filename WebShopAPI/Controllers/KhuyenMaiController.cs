@@ -53,7 +53,7 @@ namespace WebShopAPI.Controllers
         {
             if (id != khuyenmai.IdKhuyenMai)
             {
-                return NotFound();
+                return NotFound("Khuyến mãi không tồn tại");
             }
             _khuyenmai.Entry(khuyenmai).State = EntityState.Modified;
             try
@@ -64,7 +64,7 @@ namespace WebShopAPI.Controllers
             {
                 if (!KhuyenMaiExists(id))
                 {
-                    return NotFound();
+                    return NotFound("Mã khuyến mãi đã tồn tại");
                 }
                 else
                 {
@@ -81,7 +81,7 @@ namespace WebShopAPI.Controllers
 
             if(khuyenmai == null)
             {
-                return NotFound();
+                return NotFound("Khuyến mãi không tồn tại");
             }
             _khuyenmai.KhuyenMai.Remove(khuyenmai);
             await _khuyenmai.SaveChangesAsync();

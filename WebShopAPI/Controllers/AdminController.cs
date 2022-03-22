@@ -32,7 +32,7 @@ namespace WebShopAPI.Controllers
                                                                                                                                                                                                                                                                                   
             if (ad == null)
             {
-                return BadRequest("Không tìm thấy nhân viên.");
+                return BadRequest("Không tìm thấy nhân viên trong cơ sở dữ liệu.");
             }
 
             return Ok(ad);
@@ -45,7 +45,7 @@ namespace WebShopAPI.Controllers
             var admin = await _admin.Admin.Where(ad => ad.UserName == username).FirstOrDefaultAsync();
             if(admin == null)
             {
-                return BadRequest();
+                return BadRequest("Tài khoản admin không chưa tồn tại");
             }
             
             return Ok(new {chucVu = admin.ChucVu, hovaTen = admin.HovaTen});
@@ -114,7 +114,7 @@ namespace WebShopAPI.Controllers
         {
             if (AdminNameExists(admin.UserName))
             {
-                return BadRequest();
+                return BadRequest("User Name đã tồn tại");
             }
 
             admin.PassWord = GetMD5(admin.PassWord);
@@ -139,12 +139,12 @@ namespace WebShopAPI.Controllers
                 }
                 else
                 {
-                    return BadRequest("Login Faile.");
+                    return BadRequest("Vui lòng kiểm tra lại tài khoản và mật khẩu.");
                 }
             }
             else
             {
-                return BadRequest("User not here.");
+                return BadRequest("Tài khoản chưa tồn tại.");
             }
         }
 

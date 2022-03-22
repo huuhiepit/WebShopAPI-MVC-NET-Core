@@ -30,7 +30,7 @@ namespace WebShopAPI.Controllers
 
             if (size == null)
             {
-                return BadRequest("Không tìm thấy size.");
+                return BadRequest("Size không tồn tại.");
             }
 
             return Ok(size);
@@ -41,7 +41,7 @@ namespace WebShopAPI.Controllers
         {
             if (SizeNameExists(size.TenSize))
             {
-                return NotFound();
+                return NotFound("Size đã tồn tại");
             }
             _size.Size.Add(size);
             await _size.SaveChangesAsync();
@@ -55,7 +55,7 @@ namespace WebShopAPI.Controllers
             _size.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             if (id != size.IdSize)
             {
-                return BadRequest("Không tìm thấy size.");
+                return BadRequest("Size không tồn tại.");
             }
 
             var s = await _size.Size.FindAsync(id);
@@ -69,7 +69,7 @@ namespace WebShopAPI.Controllers
 
             if (SizeNameExists(size.TenSize))
             {
-                return BadRequest();
+                return BadRequest("Size đã tồn tại");
             }
 
             try

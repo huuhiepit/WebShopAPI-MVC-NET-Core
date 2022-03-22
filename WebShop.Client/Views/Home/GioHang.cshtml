@@ -6,8 +6,8 @@
 <!--Begin: Cart-->
 <div class="container">
     <div class="link_prev-item">
-        <a href="index.html" class=""><i class="mr-12 fa-solid fa-house-chimney"></i><span>Home</span></a>
-        <a href="cart.html" class="">Giỏ hàng</a> 
+        <a href="/Home" class=""><i class="mr-12 fa-solid fa-house-chimney"></i><span>Home</span></a>
+        <a href="#" class="">Giỏ hàng</a> 
     </div>
     <div class="cart_name">
         Shopping cart
@@ -15,52 +15,76 @@
     <section class="cart_container">
         <div class="cart_header">
             <div class="cart_header-item">
-                <input class="cart_header-item-checkbox" type="checkbox" title="Chọn tất cả">
+                <input id="checkAll" class="cart_header-item-checkbox" type="checkbox" title="Chọn tất cả">
             </div>
-            <div class="cart_header-item" title="Xóa"><i class="cart_header-item-delete fa-solid fa-trash"></i></div>
+            <div id="delete_cart" class="cart_header-item" title="Xóa"><i class="cart_header-item-delete fa-solid fa-trash"></i></div>
         </div>
-        <div class="cart_body">
-            <div class="cart_item">
-                <div class="cart_item-checkbox mr-12" title="Chọn">
-                    <input type="checkbox">
-                </div>
-                <div class="cart_item-img mr-12" title="Ảnh sản phẩm"><img src="/static/img/image1.jpg" alt="sanpham.jpg" class="cart_item-img-link" ></div>
-                <div class="cart_item-title mr-12" title="Tên sản phẩm">Áo thu</div>
-                <input class="cart_item-quantity mr-12 ml-64" type="number" value="1" min="0" title="Số lượng mua">
-                <span class="cart_item-price mr-12 ml-64" title="Giá sản phẩm">255,000₫</span>
-                <a class="cart_item-save ml-64" href="#" title="Save"><i class="fa-solid fa-pen-to-square"></i></a>
-            </div>
-                    
-            <div class="cart_item">
-                <div class="cart_item-checkbox mr-12" title="Chọn">
-                    <input type="checkbox">
-                </div>
-                <div class="cart_item-img mr-12" title="Ảnh sản phẩm"><img src="/static/img/image3.jpg" alt="sanpham.jpg" class="cart_item-img-link" ></div>
-                <div class="cart_item-title mr-12" title="Tên sản phẩm">Áo thu</div>
-                <input class="cart_item-quantity mr-12 ml-64" type="number" value="1" min="0" title="Số lượng mua">
-                <span class="cart_item-price mr-12 ml-64" title="Giá sản phẩm">255,000₫</span>
-                <a class="cart_item-save ml-64" href="#" title="Save"><i class="fa-solid fa-pen-to-square"></i></a>
-            </div>
+        <div class="cart_body" id="list_cart">
+            
         </div>
         <div class="cart-footer">
-            Tổng cộng: <span class="cart_sum-price">510,000₫</span>
-            <a href="#" data-toggle="modal" data-target="#paymentModal" class="cart_payment">Thanh toán</a>
+            Tổng cộng: <span class="cart_sum-price" id="sum-price"></span>
+            <a href="#" class="cart_payment" onclick="ThanhToan()">Thanh toán</a>
         </div>
     </section>
 </div>
 
 <!--End: Cart-->
 <!--Begin: Modal Payment-->
-
-<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Thanh toán</h5>
-                           
-                </div>
-            </div>
+@*Modal AddCart*@
+<div class="modal js-modal">
+    <div class="modal-container js-modal-container">
+        <div class="modal-close js-modal-close">
+            <i class="fa-solid fa-xmark"></i>
         </div>
+        <header class="modal-header">
+            <i class="fa-solid fa-cash-register"></i>
+            Thanh toán
+        </header>
+        <div class="modal-body">
+             <label class="modal-label">
+               <i class="fa-solid fa-user"></i> Họ và tên khách hàng
+            </label>
+            <input type="text" name="txtHovaTen" class="modal-input" readonly>
+
+            <label class="modal-label">
+               <i class="fa-solid fa-truck-fast"></i> Địa chỉ giao hàng
+            </label>
+            <input type="text" name="txtDiaChi" class="modal-input" placeholder="Vui lòng nhập địa chỉ giao hàng">
+
+             <label class="modal-label">
+               <i class="fa-solid fa-mobile"></i> Số điện thoại
+            </label>
+            <input name="txtSDT" type="tel" class="modal-input" placeholder="Vui lòng nhập số điện thoại">
+
+             <label class="modal-label">
+                <i class="fa-solid fa-cash-register"></i> Hình thức thanh toán
+            </label>
+            <select class="modal-input">
+                <option>Vui lòng chọn hình thức thanh toán</option>
+                <option>Thẻ ngân hàng</option>
+                <option>Tiền mặt</option>
+                <option>Ví điện tử</option>
+            </select>
+
+            <div id="tongtien" class="payment-money">
+                
+            </div>
+
+            <button id="buy-payment">
+                Thanh toán <i class="fa-solid fa-money-check-dollar"></i>
+            </button>
+        </div>
+
+        <footer class="modal-footer">
+            <p class="modal-help">
+                Need <a href="#">help?</a>
+            </p>
+        </footer>   
     </div>
+</div>
 <!--End: Modal Payment-->
+
+@section Scripts{
+    <script src="~/Script/Customer/GioHang.js"></script>
+}

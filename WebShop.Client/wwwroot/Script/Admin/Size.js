@@ -49,8 +49,8 @@ function CreateSize() {
             $('#createSizeModal').modal('hide');
             LoadDataSize();
         },
-        error: function (response) {
-            $.notify("Thêm mới size thất bại: " + error.TenSize, { className: "error", position: "top center" });
+        error: function (error) {
+            $.notify("Thêm mới size thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" });
         }
     });
 }
@@ -96,7 +96,7 @@ function handleUpdateSize(id) {
                 LoadDataSize();
             },
             error: function (error) {
-                $.notify("Sửa size thất bại: " + error, { className: "error", position: "top center" });
+                $.notify("Sửa size thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" });
             }
         });
     };
@@ -137,7 +137,7 @@ function handleDeleteSize(id) {
 
             },
             error: function (error) {
-                $.notify("Xóa size thất bại: " + error, { className: "error", position: "top center" });
+                $.notify("Xóa size thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" });
             }
         });
     };

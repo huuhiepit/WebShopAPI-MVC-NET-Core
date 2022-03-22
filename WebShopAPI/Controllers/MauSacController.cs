@@ -53,7 +53,7 @@ namespace WebShopAPI.Controllers
             _color.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             if (id != mausac.IdMauSac)
             {
-                return BadRequest();
+                return BadRequest("Màu sắc không tồn tại");
             }
 
             var cl = await _color.MauSac.FindAsync(id);

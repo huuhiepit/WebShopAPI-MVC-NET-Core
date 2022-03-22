@@ -24,7 +24,7 @@ namespace WebShopAPI.Controllers
             var donhang = await _donhang.ViewDonHang.OrderByDescending(dh => dh.NgayDatHang).Where(dh => dh.TrangThai == tt).ToListAsync();
             if(donhang == null)
             {
-                return BadRequest();
+                return BadRequest("Không tồn tại đơn hàng nào");
             }
 
             return Ok(donhang);
@@ -44,7 +44,7 @@ namespace WebShopAPI.Controllers
         {
             if (DonHangExists(dh.IdDonHang))
             {
-                return NotFound();
+                return NotFound("Mã đơn hàng đã tồn tại");
             }
             _donhang.DonHang.Add(dh);
             await _donhang.SaveChangesAsync();
@@ -58,7 +58,7 @@ namespace WebShopAPI.Controllers
 
             if (id != dh.IdDonHang)
             {
-                return NotFound();
+                return NotFound("Không tìm thấy mã đơn hàng");
             }
 
             var list_ctdh = await _donhang.ChiTietDonHang.Where(dh => dh.IdDonHang == dh.IdDonHang).ToListAsync();
@@ -78,7 +78,7 @@ namespace WebShopAPI.Controllers
                     }
                     else
                     {
-                        return BadRequest("Số lượng sản phẩm có trong kho không đủ");
+                        return BadRequest("Số lượng sản phẩm có trong kho không đủ để duyệt hóa đơn");
                     }
                 }
             }
@@ -92,7 +92,7 @@ namespace WebShopAPI.Controllers
             }
             catch(DbUpdateConcurrencyException)
             {
-                return BadRequest();
+                return BadRequest("Duyệt đơn hàng không thành công");
             }
 
             return Ok(dh);

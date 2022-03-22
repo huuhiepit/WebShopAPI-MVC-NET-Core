@@ -76,7 +76,7 @@ namespace WebShopAPI.Controllers
             var listPage = list_sp.Skip(pageSize * (pageNumber - 1)).Take(pageSize);
             if(listPage == null)
             {
-                return BadRequest();
+                return BadRequest("Không tồn tại sản phẩm nào");
             }
 
             return Ok(new { listPage = listPage, pageMax = pageMax(list_sp.Count()), count = (list_sp.Count()%16)});
@@ -94,6 +94,29 @@ namespace WebShopAPI.Controllers
                 pageMax = (n / 16) + 1;
             }
             return pageMax;
+        }
+
+        //Xem chi tiết sản phẩm theo tên sản phẩm
+        [HttpGet("xemchitiet/{name}")]
+        public async Task<ActionResult<ViewCtsanPham>> DetailSanPham(string name)
+        {
+            var sp = await _context.ViewSanPham.Where(sp => sp.TenSp.Equals(name)).FirstAsync();
+            
+            var list_ctsp = await _context.ViewCtsanPham.Where(sp => sp.TenSp.Equals(name)).ToListAsync();
+            return Ok(new { list_ctsp = list_ctsp, sanpham = sp}) ;
+        }
+
+        //Lấy 5 sản phẩm liên quan theo tên sản phẩm
+        [HttpGet("splienquan/{idLoai}")]
+        public async Task<ActionResult<ViewSanPham>> SPLienQuan(long idLoai)
+        {
+            var list_spLQ = await _context.ViewSanPham.Where(sp => sp.IdTheLoai == idLoai).OrderByDescending(sp => sp.NgayTao)
+                .Take(5).ToListAsync();
+            if(list_spLQ == null)
+            {
+                return NotFound("Không tồn tại sản phẩm nào");
+            }
+            return Ok(list_spLQ);
         }
     }
 }

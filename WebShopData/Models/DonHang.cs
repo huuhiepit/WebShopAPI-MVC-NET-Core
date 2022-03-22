@@ -18,6 +18,7 @@ namespace WebShopData.Models
         public string DiaChi { get; set; }
         public string Sdt { get; set; }
         public bool TrangThai { get; set; }
+        public long TongTien { get; set; }
 
         public virtual KhachHang IdKhachHangNavigation { get; set; }
         public virtual ICollection<ChiTietDonHang> ChiTietDonHang { get; set; }

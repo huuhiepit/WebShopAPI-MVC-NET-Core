@@ -1,26 +1,24 @@
 ﻿var url = 'https://localhost:7001/api/home';
 
-var key = getParameterByName('search');
-var loai = getParameterByName('theloai');
+const key = getParameterByName('search');
+const loai = getParameterByName('theloai');
 const pageNumber = getUrlVars(window.location.href)['page']
+
+
 $(document).ready(function () {
-    ListItemNavbar();
-    
-    if (key != null) {
+    if (key) {
         Search(key, pageNumber);
-    } else {
-        if (loai != null) {
-            SearchLoai(loai, pageNumber);      
-        }
-        else {
-            if (pageNumber != null) {
-                GetListProductsPage(pageNumber);
-            } else {
-                GetListProductsPage(1);
-            }                     
+    }
+    if (loai) {
+        SearchLoai(loai, pageNumber);
+    }
+    if (!key && !loai) {
+        if (pageNumber) {
+            GetListProductsPage(pageNumber);
+        } else {
+            GetListProductsPage(1);
         }
     }
-    
 });
 
 //Get List PageNumber
@@ -143,24 +141,6 @@ function pageSearchLoai(name, number, maxPage) {
     }
     document.getElementById('pagination').innerHTML = str;
 }
-//------------------------------
-function ListItemNavbar() {
-    $.ajax({
-        url: "https://localhost:7001/api/theloai",
-        type: 'GET',
-        success: function (data) {
-            str = ``;
-            $.each(data, function (i, item) {
-                str += `
-                       <li class="header__navbar-item">
-                          <a href="/?theloai=` + item.tenTheLoai + `&page=1" class="header__swtich-menu-item-link-category-li">` + item.tenTheLoai + `</a>
-                       </li>
-                            `;
-            });
-            $('#navbar-header').html(str);
-        }
-    });
-}
 
 
 function ProductsItem(data) {
@@ -169,9 +149,9 @@ function ProductsItem(data) {
 
     $.each(data, function (i, product) {
         str += `
-                <div class="product_item + product-item-`+ product.idSanPham + `">
+                <div class="product_item product-item-`+ product.idSanPham + `">
                     <div class="product_item-img-wrapper">
-                        <a href="#">
+                        <a href="/Home/Detail/?sanpham=`+ product.tenSp + `">
                             <img class="product_item-img" src="../img/products/`+ product.image + `" alt="product.jpg">
                         </a>
                     </div>
@@ -194,10 +174,10 @@ function ProductsItem(data) {
 
         str += `
                     <div class="product_item-cart">
-                        <a href="#" class="product_item-action-btn ">
+                        <div class="product_item-action-btn" onclick="OpenModelCart('`+ product.tenSp +`')">
                             <i class="fa-solid fa-cart-shopping"></i> Thêm vào giỏ hàng
-                        </a>
-                        <a href="/Home/Detail" class="product_item-action-btn product-item-separate">
+                        </div>
+                        <a href="/Home/Detail/?sanpham=`+ product.tenSp + `" class="product_item-action-btn product-item-separate">
                             <i class="fa-solid fa-eye"></i> Xem chi tiết
                         </a>
                     </div>
@@ -205,4 +185,16 @@ function ProductsItem(data) {
     });
 
     $('#list_Products').html(str);
+}
+
+//Add Cart Modal
+const modal = document.querySelector('.js-modal')
+const modalClose = document.querySelector('.js-modal-close')
+
+function OpenModelCart(name) {
+    modal.classList.add('open');
+    modalClose.addEventListener('click', () => {
+        modal.classList.remove('open');
+    });
+    DetailSanPham(name);
 }

@@ -17,6 +17,6 @@ namespace WebShopData.Models
         public string TenMauSac { get; set; }
         public string ImageUrl { get; set; }
         public long Gia { get; set; }
-        public long SoLuong { get; set; }
+        public int SoLuong { get; set; }
     }
 }

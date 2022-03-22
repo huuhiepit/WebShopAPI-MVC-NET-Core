@@ -8,7 +8,7 @@ namespace WebShop.Client.Controllers
         {
             return View();
         }
-        public IActionResult Detail(long id)
+        public IActionResult Detail()
         {
             return View();
         }
@@ -18,6 +18,10 @@ namespace WebShop.Client.Controllers
             return View();
         }
         public IActionResult Login()
+        {
+            return View();
+        }
+        public IActionResult LichSuMuaHang()
         {
             return View();
         }

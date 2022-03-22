@@ -60,8 +60,8 @@ function CreateKhuyenMai() {
             LoadDataKhuyenMai();
 
         },
-        error: function () {
-            $.notify("Thêm mới khuyến mãi thất bại. ", { className: "error", position: "top center" });
+        error: function (error) {
+            $.notify("Thêm mới khuyến mãi thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" });
         }
     });
 }
@@ -118,8 +118,8 @@ function handleUpdateKhuyenMai(id) {
                 LoadDataKhuyenMai();
 
             },
-            error: function () {
-                $.notify("Sửa khuyến mãi thất bại.", { className: "error", position: "top center" });
+            error: function (error) {
+                $.notify("Sửa khuyến mãi thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" });
             }
         });
     };
@@ -158,8 +158,8 @@ function handleDeleteKhuyenMai(id) {
                 $.notify("Xóa thành công", { className: "success", position: "top center" });
 
             },
-            error: function () {
-                $.notify("Xóa thất bại. ", { className: "error", position: "top center" });
+            error: function (error) {
+                $.notify("Xóa thất bại. Lỗi: " + error.responseText, { className: "error", position: "top center" });
             }
         });
     };

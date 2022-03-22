@@ -21,7 +21,8 @@ namespace WebShopAPI.Controllers
         [HttpGet("{idDH}")]
         public async Task<ActionResult<IEnumerable<ViewCtdonHang>>> GetCTDH(long idDH)
         {
-            return Ok(await _ctdh.ViewCtdonHang.Where(ctdh => ctdh.IdDonHang == idDH).ToListAsync());
+            var list_ctdh = await _ctdh.ViewCtdonHang.Where(ctdh => ctdh.IdDonHang == idDH).ToListAsync();
+            return Ok(list_ctdh);
         }
 
 
@@ -31,7 +32,7 @@ namespace WebShopAPI.Controllers
         {
             if (CTDHExists(ctdh.IdCtdh))
             {
-                return NotFound();
+                return NotFound("Mã đơn hàng đã tồn tại");
             }
 
             _ctdh.ChiTietDonHang.Add(ctdh);
@@ -48,7 +49,7 @@ namespace WebShopAPI.Controllers
 
             if (ctdh == null)
             {
-                return BadRequest();
+                return BadRequest("Đơn hàng không tồn tại");
             }
 
             _ctdh.ChiTietDonHang.Remove(ctdh);

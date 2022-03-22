@@ -58,7 +58,7 @@ namespace WebShopAPI.Controllers
             _theloai.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             if (id != theLoai.IdTheLoai)
             {
-                return NotFound(new {error = "Không tìm thấy thể loại" });
+                return NotFound("Không tìm thấy thể loại");
             }
 
             var tl = await _theloai.TheLoai.FindAsync(id);
@@ -70,7 +70,7 @@ namespace WebShopAPI.Controllers
 
             if (TheLoaiNameExists(theLoai.TenTheLoai))
             {
-                return BadRequest(new { error = "Hello world" });
+                return BadRequest("Hello world");
             }
 
             _theloai.Entry(theLoai).State = EntityState.Modified;
@@ -83,7 +83,7 @@ namespace WebShopAPI.Controllers
             {
                 if (!TheLoaiExists(id))
                 {
-                    return NotFound();
+                    return NotFound("Mã thể loại đã tồn tại");
                 }
                 else
                 {

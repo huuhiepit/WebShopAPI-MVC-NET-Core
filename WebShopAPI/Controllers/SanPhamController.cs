@@ -32,7 +32,7 @@ namespace WebShopAPI.Controllers
 
             if(sanpham == null)
             {
-                return NotFound();
+                return NotFound("Sản phẩm không tồn tại");
             }
 
             return Ok(sanpham);
@@ -52,7 +52,7 @@ namespace WebShopAPI.Controllers
         {
             if (SanPhamExists(sanpham.TenSp))
             {
-                return NotFound();
+                return NotFound("Sản phẩm đã tồn tại");
             }
             _sanpham.SanPham.Add(sanpham);
             await _sanpham.SaveChangesAsync();
@@ -85,7 +85,7 @@ namespace WebShopAPI.Controllers
         {
             if(id != sanpham.IdSanPham)
             {
-                return NotFound();
+                return NotFound("Sản phẩm không tồn tại");
             }
 
             _sanpham.Entry(sanpham).State = EntityState.Modified;
@@ -109,7 +109,7 @@ namespace WebShopAPI.Controllers
             {
                 if (SanPhamExists(sanpham.TenSp))
                 {
-                    return NotFound();
+                    return NotFound("Sản phẩm đã tồn tại");
                 }
                 else
                 {
@@ -142,7 +142,7 @@ namespace WebShopAPI.Controllers
 
             if (sanpham == null)
             {
-                return NotFound();
+                return NotFound("Sản phẩm không tồn tại");
             }
 
             deleteImage(sanpham.Image);
