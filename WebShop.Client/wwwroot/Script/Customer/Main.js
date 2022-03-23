@@ -95,7 +95,7 @@ function DetailSanPham(name) {
 
             var str_action = `
                     <a onclick="AddCart('`+name+`')">Thêm vào giỏ hàng</a>
-                    <a href="#">Mua ngay</a>`;
+                    <a onclick="MuaNgay('`+ name +`')">Mua ngay</a>`;
 
             $("#sp-soluong-0").val(1);
             $('#product_list-img').html(str_listImg);
@@ -210,7 +210,7 @@ if (sessionStorage.getItem("userCustomer") != null) {
         type: "GET",
         success: function (khachhang) {
             var str = `<p class="header__navbar-item-link" >                   
-                    <span class="header__navbar-span"><i class="header__navbar-icon fa-solid fa-circle-user"></i> Xin chào: `+ khachhang.hovaTen +`</span>
+                    <span onclick="DangXuat()" class="header__navbar-span"><i class="header__navbar-icon fa-solid fa-circle-user"></i> Xin chào: `+ khachhang.hovaTen +`</span>
                 </p>`;
             $("#Account").html(str);
             $('input[name="txtHovaTen"').val(khachhang.hovaTen);
@@ -223,4 +223,29 @@ if (sessionStorage.getItem("userCustomer") != null) {
             </a>`;
 
     $("#Account").html(str);
+}
+
+//Xử lý mua ngay
+function MuaNgay(name) {
+    if (SizeChecked() != undefined && ColorChecked() != undefined) {
+        AddCart(name);
+        location.href = "/Home/GioHang";
+
+    } else {
+        $.notify("Xin vui lòng chọn size và màu sắc sản phẩm. ", { className: "error", position: "top center" });
+    }
+}
+
+//-----------------------------------
+var lichsu = document.getElementById("lich_su");
+if (sessionStorage.getItem("userCustomer") != null) {
+    lichsu.style.display = "inline-flex";
+} else {
+    lichsu.style.display = "none";
+}
+
+//----------------------------------
+function DangXuat() {
+    sessionStorage.removeItem("userCustomer");
+    location.href = "/Home"
 }

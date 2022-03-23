@@ -23,11 +23,12 @@ namespace WebShopAPI.Controllers
         [Route("doanhthu/{dateStarted}&{dateEnded}")]
         public async Task<ActionResult<IEnumerable<ViewDoanhThu>>> ThongKeDoanhThu(DateTime dateStarted, DateTime dateEnded)
         {
-            var doanhthu = await _thongke.ViewDoanhThu.OrderBy(dt => dt.NgayDatHang).Where(dt => dt.NgayDatHang >= dateStarted && dt.NgayDatHang <= dateEnded).ToListAsync();
+            var doanhthu = await _thongke.ViewDoanhThu.OrderByDescending(dt => dt.NgayDatHang).Where(dt => dt.NgayDatHang >= dateStarted && dt.NgayDatHang <= dateEnded).ToListAsync();
             return Ok(doanhthu);
         }
 
         //Số lượng sản phẩm bán ra
+
         [HttpGet]
         [Route("spbanchay/{dateStarted}&{dateEnded}")]
         public async Task<ActionResult<IEnumerable<ViewSanPhamBanChay>>> ThongKeSPBanChay(DateTime dateStarted, DateTime dateEnded)

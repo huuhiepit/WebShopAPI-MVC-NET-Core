@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebShopData.Models
 {
@@ -17,6 +18,7 @@ namespace WebShopData.Models
         public long IdSize { get; set; }
         public long IdMauSac { get; set; }
         public string ImageUrl { get; set; }
+        [Required]
         public int SoLuong { get; set; }
 
         public virtual MauSac IdMauSacNavigation { get; set; }

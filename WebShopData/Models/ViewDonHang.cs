@@ -13,6 +13,7 @@ namespace WebShopData.Models
         public DateTime NgayDatHang { get; set; }
         public string DiaChi { get; set; }
         public string Sdt { get; set; }
+        public long TongTien { get; set; }
         public bool TrangThai { get; set; }
     }
 }

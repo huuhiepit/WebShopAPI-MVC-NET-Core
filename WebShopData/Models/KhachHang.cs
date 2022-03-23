@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebShopData.Models
 {
@@ -13,12 +14,19 @@ namespace WebShopData.Models
         }
 
         public long IdKhachHang { get; set; }
+        [Required]
         public string HovaTen { get; set; }
+        [Required]
         public DateTime NgaySinh { get; set; }
+        [Required]
         public string DiaChi { get; set; }
+        [Required][Phone]
         public string Sdt { get; set; }
+        [Required][EmailAddress]
         public string Email { get; set; }
+        [Required]
         public string UserName { get; set; }
+        [Required]
         public string PassWord { get; set; }
         public DateTime NgayTao { get; set; }
 

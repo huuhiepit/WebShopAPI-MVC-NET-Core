@@ -3,17 +3,17 @@
     ViewData["Title"] = "Thống kê";
 }
 
-<h1 class="h3 mb-2 text-gray-800">Thống kê - Báo cáo</h1>
+<h1 class="h3 mb-2 text-gray-800">Thống kê - Báo cáo</h1><br />
 
 <!-- DataTales Example -->
-
+<div id="thongke_DT">
+    Từ ngày: <input type="date" name="dateStart"> &nbsp;&nbsp;&nbsp;&nbsp; 
+    Đến ngày: <input type="date" name="dateEnd"> &nbsp;&nbsp;&nbsp;&nbsp; 
+    <input type="button" onclick="handleDoanhThu()" value="Duyệt"/>
+</div><br>
 <div class="card shadow mb-4">
     <div class="card-header py-3 row">
         <h6 class="m-0 font-weight-bold text-primary">Thống kê doanh thu</h6><br />
-    </div>
-    <div class="card-header py-2 row">
-        <input type="date" class="form-control" name="dateStarted" placeholder="Ngày bắt đầu"/>
-        <input type="date" class="form-control" name="dateEnded" placeholder="Ngày kết thúc"/>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -28,14 +28,12 @@
                     </tr>
                  </thead>
                 <tbody id="load_data_DoanhThu">
-                    <tr>1</tr>
-                    <tr>1</tr>
-                    <tr>2020-01-01</tr>
-                    <tr>106000</tr>
+                    
                 </tbody>
             </table>
         </div>
+        <div id="doanhThu"></div>
     </div>
 </div>
 
- 
+<script src="~/Script/Admin/ThongKe.js"></script>

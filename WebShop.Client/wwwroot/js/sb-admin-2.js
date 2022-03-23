@@ -1,4 +1,4 @@
-(function($) {
+﻿(function($) {
   "use strict"; // Start of use strict
 
   // Toggle the side navigation
@@ -6,8 +6,11 @@
     $("body").toggleClass("sidebar-toggled");
     $(".sidebar").toggleClass("toggled");
     if ($(".sidebar").hasClass("toggled")) {
-      $('.sidebar .collapse').collapse('hide');
-    };
+        $('.sidebar .collapse').collapse('hide');
+          document.getElementsByClassName("container-fluid")[0].style.paddingLeft = "8.5rem"
+      }else {
+          document.getElementsByClassName("container-fluid")[0].style.paddingLeft = "15.5rem"
+      }
   });
 
   // Close any open menu accordions when window is resized below 768px
@@ -50,7 +53,7 @@
     $('html, body').stop().animate({
       scrollTop: ($($anchor.attr('href')).offset().top)
     }, 1000, 'easeInOutExpo');
-    e.preventDefault();
+      e.preventDefault();
   });
 
 })(jQuery); // End of use strict

@@ -21,6 +21,7 @@ function LoadDonHang(trangthai) {
                 str += "<td>" + dh.hovaTen + "</td>";
                 str += "<td>" + dh.sdt + "</td>";
                 str += "<td>" + dh.diaChi + "</td>";
+                str += "<td>" + formatCash(dh.tongTien + '') + "đ</td>";
                 if (dh.trangThai == true) {
                     str += "<td>Đã duyệt đơn</td>";
                 }

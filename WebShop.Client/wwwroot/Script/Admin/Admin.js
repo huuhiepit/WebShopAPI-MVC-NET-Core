@@ -1,5 +1,4 @@
-﻿const { error } = require("jquery");
-
+﻿
 var url = "https://localhost:7001/api/admin";
 var date = new Date();
 $(document).ready(function () {

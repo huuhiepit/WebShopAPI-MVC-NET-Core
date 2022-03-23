@@ -57,9 +57,23 @@ namespace WebShopAPI.Controllers
         [HttpGet("lichsumuahang/{id}")]
         public async Task<ActionResult<IEnumerable<ViewLichSuMuaHang>>> GetLichSuMuaHang(long id)
         {
-            var lichsu = await _khachhang.ViewLichSuMuaHang.Where(ls => ls.IdKhachHang == id && ls.TrangThai == true).ToListAsync();
+            var lichsu = await _khachhang.ViewLichSuMuaHang.Where(ls => ls.IdKhachHang == id && ls.TrangThai == true).OrderByDescending(ls => ls.NgayDatHang).ToListAsync();
 
             if(lichsu == null)
+            {
+                return BadRequest("Khách hàng chưa có lịch sử mua hàng nào");
+            }
+
+            return Ok(lichsu);
+        }
+
+        // Lấy thông tin lịch sử mua hàng của một khách hàng
+        [HttpGet("xemlichsumuahang/{id}")]
+        public async Task<ActionResult<IEnumerable<ViewLichSuMuaHang>>> XemLichSuMuaHang(long id)
+        {
+            var lichsu = await _khachhang.ViewLichSuMuaHang.Where(ls => ls.IdKhachHang == id).OrderByDescending(ls => ls.NgayDatHang).ToListAsync();
+
+            if (lichsu == null)
             {
                 return BadRequest("Khách hàng chưa có lịch sử mua hàng nào");
             }

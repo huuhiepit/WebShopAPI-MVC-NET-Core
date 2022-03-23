@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebShopData.Models
 {
@@ -10,7 +11,9 @@ namespace WebShopData.Models
         public long IdCtdh { get; set; }
         public long IdDonHang { get; set; }
         public long IdCtsp { get; set; }
+        [Required]
         public long Gia { get; set; }
+        [Required]
         public int SoLuong { get; set; }
 
         public virtual ChiTietSanPham IdCtspNavigation { get; set; }

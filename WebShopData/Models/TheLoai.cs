@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebShopData.Models
 {
@@ -13,6 +14,7 @@ namespace WebShopData.Models
         }
 
         public long IdTheLoai { get; set; }
+        [Required]
         public string TenTheLoai { get; set; }
 
         public virtual ICollection<SanPham> SanPham { get; set; }

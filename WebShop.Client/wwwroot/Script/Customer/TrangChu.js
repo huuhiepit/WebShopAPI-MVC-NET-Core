@@ -113,6 +113,15 @@ function SearchLoai(name, pageNumber) {
             $('#title_theloai').html(name);
             ProductsItem(data.listPage);
             pageSearchLoai(name, pageNumber, data.pageMax);
+            //-----------------------------------
+            var navHeaderActive = document.getElementsByClassName('header__swtich-menu-item-link-category-li');
+            if (navHeaderActive) {
+                for (let i = 0; i < navHeaderActive.length; i++) {
+                    if (navHeaderActive[i].innerHTML == loai) {
+                        navHeaderActive[i].style.color = "#007fdb";
+                    }
+                }
+            }
         },
         error: function () {
             $('#title_theloai').html("Không có sản phẩm nào có trong loại!!!");

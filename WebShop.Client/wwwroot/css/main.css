@@ -174,6 +174,11 @@
             bottom: -4px;
             left: 8px;
         }
+
+.active-header {
+    color: #007fdb;
+}
+
 /* Slides container */
 .mySlides > img {
     margin-top: 112px;
@@ -968,8 +973,42 @@ ul.pagination {
 }
 
 /*Lich su mua hang*/
+.history_container {
+    overflow: auto;
+    height: 1086px;
+}
+
 .history-name {
     text-align: center;
     font-size: 2.2rem;
     font-weight: 700;
 }
+
+.history-table {
+    width: 99%;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 2.4;
+    border: 1px solid rgb(215 204 204 / 40%);
+    border-collapse: collapse;
+    margin: 24px 0 16px;
+}
+
+.history-header th {
+    font-size: 1.8rem;
+    background: #1d7af3dd;
+    color: #fff;
+}
+
+.history-body {
+    margin-top: 6px;
+}
+
+    .history-body td img {
+        max-width: 98px;
+    }
+
+    .history-body:hover {
+        background: #e9eff3;
+    } 
