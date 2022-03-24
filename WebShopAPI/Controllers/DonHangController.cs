@@ -53,8 +53,9 @@ namespace WebShopAPI.Controllers
 
         //Duyệt đơn hàng: đổi thanh trang thái thành đã duyệt
         [HttpPut("doitrangthai/{id}")]
-        public async Task<IActionResult> DoiTrangThaiDH(long id, DonHang dh)
+        public async Task<IActionResult> DoiTrangThaiDH(long id)
         {
+            var dh = await _donhang.DonHang.Where(dh => dh.IdDonHang == id).FirstAsync();
 
             if (id != dh.IdDonHang)
             {
