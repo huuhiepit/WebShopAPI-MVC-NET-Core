@@ -755,13 +755,16 @@ ul.pagination {
         background: var(--text-color);
         color: #fff;
     }
+    .product_detail-item-action > a:hover {
+        background: #007fdb;
+    }
 
-.product-detail-bottom {
-    padding-top: 18px;
-    border: 1px solid #ddd;
-    position: relative;
-    border-radius: 0 32px;
-}
+    .product-detail-bottom {
+        padding-top: 18px;
+        border: 1px solid #ddd;
+        position: relative;
+        border-radius: 0 32px;
+    }
 
 .product-detail-bottom-top {
     position: absolute;
