@@ -1,0 +1,91 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;800&display=swap');
+body,
+input {
+    font-family: 'Quicksand', sans-serif;
+}
+:root {
+    --white-color: #fff;
+    --icon-color: #686969;
+    --text-color: #000;
+    --border-color: #4d4c4c;
+    
+}
+
+*{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.mr-12 {
+    margin-right: 12px;
+}
+
+.ml-64 {
+    margin-left: 64px;
+}
+
+.mb-46 {
+    margin-bottom: 46px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(356px, 1fr));
+    grid-gap: 20px;
+}
+
+.grid-column-2 {
+    grid-row: 1 / span 2;
+}
+
+#backtop {
+    width: 50px;
+    height: 50px;
+    background: #4d4c4c;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+}
+#backtop:hover {
+    cursor: pointer;
+    background: #979595;
+}
+.backtop-icon {
+    font-size: 1.8rem;
+}
+
+.container {
+    padding: 132px 264px 0; 
+}
+/* PC */
+@media (min-width: 1024px) {
+
+}
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px){
+ 
+}
+/* Moblie */
+@media (max-width: 740px) {
+  
+}

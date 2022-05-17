@@ -1,0 +1,90 @@
+﻿@{
+    Layout = "_LayoutCustomer";
+    ViewData["Title"] = "Giỏ hàng";
+}
+<!--End: header-->
+<!--Begin: Cart-->
+<div class="container">
+    <div class="link_prev-item">
+        <a href="/Home" class=""><i class="mr-12 fa-solid fa-house-chimney"></i><span>Home</span></a>
+        <a href="#" class="">Giỏ hàng</a> 
+    </div>
+    <div class="cart_name">
+        Shopping cart
+    </div>
+    <section class="cart_container">
+        <div class="cart_header">
+            <div class="cart_header-item">
+                <input id="checkAll" class="cart_header-item-checkbox" type="checkbox" title="Chọn tất cả">
+            </div>
+            <div id="delete_cart" class="cart_header-item" title="Xóa"><i class="cart_header-item-delete fa-solid fa-trash"></i></div>
+        </div>
+        <div class="cart_body" id="list_cart">
+            
+        </div>
+        <div class="cart-footer">
+            Tổng cộng: <span class="cart_sum-price" id="sum-price"></span>
+            <a href="#" class="cart_payment" onclick="ThanhToan()">Thanh toán</a>
+        </div>
+    </section>
+</div>
+
+<!--End: Cart-->
+<!--Begin: Modal Payment-->
+@*Modal AddCart*@
+<div class="modal js-modal">
+    <div class="modal-container js-modal-container">
+        <div class="modal-close js-modal-close">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <header class="modal-header">
+            <i class="fa-solid fa-cash-register"></i>
+            Thanh toán
+        </header>
+        <div class="modal-body">
+             <label class="modal-label">
+               <i class="fa-solid fa-user"></i> Họ và tên khách hàng
+            </label>
+            <input type="text" name="txtHovaTen" class="modal-input" readonly>
+
+            <label class="modal-label">
+               <i class="fa-solid fa-truck-fast"></i> Địa chỉ giao hàng
+            </label>
+            <input type="text" name="txtDiaChi" class="modal-input" placeholder="Vui lòng nhập địa chỉ giao hàng">
+
+             <label class="modal-label">
+               <i class="fa-solid fa-mobile"></i> Số điện thoại
+            </label>
+            <input name="txtSDT" type="tel" class="modal-input" placeholder="Vui lòng nhập số điện thoại">
+
+             <label class="modal-label">
+                <i class="fa-solid fa-cash-register"></i> Hình thức thanh toán
+            </label>
+            <select class="modal-input">
+                <option>Vui lòng chọn hình thức thanh toán</option>
+                <option>Thẻ ngân hàng</option>
+                <option>Tiền mặt</option>
+                <option>Ví điện tử</option>
+            </select>
+
+            <div id="tongtien" class="payment-money">
+                
+            </div>
+
+            <button id="buy-payment">
+                Thanh toán <i class="fa-solid fa-money-check-dollar"></i>
+            </button>
+        </div>
+
+        <footer class="modal-footer">
+            <p class="modal-help">
+                Need <a href="#">help?</a>
+            </p>
+        </footer>   
+    </div>
+</div>
+<!--End: Modal Payment-->
+
+@section Scripts{
+    <script src="~/Script/Customer/GioHang.js"></script>
+}

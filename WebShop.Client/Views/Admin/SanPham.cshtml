@@ -1,0 +1,136 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Product manager";
+}
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Sản phẩm</h1>
+<a href="#" class="nav-link" style="text-transform: uppercase; width: 180px;" data-toggle="modal" data-target="#createSPModal">
+    <i class="fa-solid fa-circle-plus" style="padding-right: 6px;"></i><b>Create new</b>
+</a>
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3 row">
+        <h6 class="m-0 font-weight-bold text-primary">Bảng danh sách sản phẩm</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">               
+            <table class="table table-bordered" id="dataTableProducts" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Ảnh</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Loại sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Giá nhập (VND)</th>
+                        <th>Giá bán (VND)</th>
+                        <th>Giảm giá (%)</th>
+                        <th>Detail</th>
+                        <th>Edit</th> 
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody id="list_Data_Products">
+               
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--Modal Create San Pham-->
+<div class="modal fade  bd-example-modal-xl" id="createSPModal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="row justify-content-center ">
+                <div class="col-lg-8">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Add a Product!!!</h1>
+                        </div>                                                
+                        <div class="form-group">
+                            <input type="text" name="txtSanPham" class="form-control" placeholder="Nhập tên sản phẩm">
+                        </div>
+                        <div class="form-group row">      
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <select name="txtTheLoai" id="txtTheLoai" class="form-control">                                   
+                                </select>
+                            </div>                                          
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="number" name="txtGiamGia" class="form-control" placeholder="Giảm giá" min="0" max="100">
+                            </div>                  
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="number" name="txtGiaNhap" class="form-control" placeholder="Giá nhập" min="0">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" name="txtGiaBan" class="form-control" placeholder="Giá bán" min="0">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            
+                            <input type="file" name="txtTenAnh" class="form-control" placeholder="Chọn ảnh sản phẩm" accept="image/x-png,image/gif,image/jpeg">
+                        </div>
+                        <div class="text-center">
+                            <button id="createSP" class="btn btn-primary" style="margin: 0px 10px;">Add product</button>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal" onclick="Clear()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal Update San Pham-->
+<div class="modal fade  bd-example-modal-xl" id="updateSPModal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="row justify-content-center ">
+                <div class="col-lg-8">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Update a Product!!!</h1>
+                        </div>                                                
+                        <div class="form-group">
+                            <input type="text" name="txtSanPhamUpload" class="form-control" placeholder="Nhập tên sản phẩm">
+                        </div>
+                        <div class="form-group row">      
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <select name="txtTheLoaiUpload" id="txtTheLoaiUpload" class="form-control">                                   
+                                </select>
+                            </div>                                          
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="number" name="txtGiamGiaUpload" class="form-control" placeholder="Giảm giá" min="0" max="100">
+                            </div>                  
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="number" name="txtGiaNhapUpload" class="form-control" placeholder="Giá nhập" min="0">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" name="txtGiaBanUpload" class="form-control" placeholder="Giá bán" min="0">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="txtAnhUpload" readonly>
+                            <input type="file" name="txtTenAnhUpload" class="form-control" placeholder="Chọn ảnh sản phẩm" accept="image/x-png,image/gif,image/jpeg">
+                        </div>
+                        <div class="text-center">
+                            <button id="updateSP" class="btn btn-primary" style="margin: 0px 10px;">Save</button>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal" onclick="Clear()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Script/Admin/SanPham.js"></script>

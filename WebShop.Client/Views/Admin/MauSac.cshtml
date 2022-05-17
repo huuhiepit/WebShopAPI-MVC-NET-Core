@@ -1,0 +1,104 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Color manager";
+}
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Màu sắc</h1>
+<a href="#" class="nav-link" style="text-transform: uppercase; width: 180px;" data-toggle="modal" data-target="#createColorModal">
+    <i class="fa-solid fa-circle-plus" style="padding-right: 6px;"></i><b>Create new</b>
+</a>
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3 row">
+        <h6 class="m-0 font-weight-bold text-primary">Bảng danh sách màu sắc</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+                                
+            <table class="table table-bordered" id="dataTableColor" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Màu sắc</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="list_Data_Colors">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--Modal Create MauSac-->
+<div class="modal fade" id="createColorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm mới màu</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close" onclick="Clear()">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label>Tên Màu</label><br>
+                <input type="text" class="form-control bg-light border-7 small" name="tenMauSac" placeholder="Nhập tên màu">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal" onclick="Clear()">Cancel</button>
+                <button class="btn btn-primary" id="createColor">Create</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal Update MauSac-->
+<div class="modal fade" id="updateColorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm mới Màu</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close" onclick="Clear()">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label>Tên Màu</label><br>
+                <input type="text" class="form-control bg-light border-7 small" name="txtTenMauSac" placeholder="Nhập tên màu">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal" onclick="Clear()">Cancel</button>
+                <button class="btn btn-primary" id="updateColor">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal Delete MauSac-->
+<div class="modal fade" id="deleteColorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Xóa Màu</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body" id="message_delete">
+     
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-danger" id="deleteColor">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="../Script/Admin/MauSac.js"></script>

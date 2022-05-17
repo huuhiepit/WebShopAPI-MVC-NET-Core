@@ -1,0 +1,99 @@
+﻿@{
+    Layout = "_LayoutCustomer";
+    ViewData["Title"] = "Xem chi tiết sản phẩm";
+}
+
+<!--Begin: Detail Product-->
+<div class="container">
+    <div class="link_prev-item">
+        <a href="/Home" class=""><i class="mr-12 fa-solid fa-house-chimney"></i><span>Home</span></a>
+        <a href="#" class=""><span>Xem sản phẩm</span></a>
+        <a href="#" id="product_link" class=""></a>
+    </div>
+
+            <div class="grid">
+                <div class="grid-column-2">
+                    <div class="product_detail-item-img" >
+                        <img src="" id="product_detail-img" alt="image.jpg">
+                    </div>
+
+                    <div class="product_detail-list-img" id="product_list-img">
+            
+                    </div>
+                </div>
+                <div class="grid-column-2"><div class="div"></div>
+                    <p class="product_detail-item-title mb-46 product_name" id="product_name">
+
+                    </p>
+                    <div class="product_detail-item-price mb-46" id="product_price">
+                
+                    </div>
+                    <label>Kích cỡ</label>
+                    <div class="product_detail-list-size mb-46" id="product_list-size">
+             
+                    </div>
+                    <label>Màu sắc</label>
+                    <div class="product_detail-list-color mb-46" id="product_list-mausac">
+    
+                    </div>
+                    <label>Số lượng</label>
+                    <div class="product_detail-item-quantity mb-46">
+                        <span class="sp-tru">-</span>
+                        <input id="sp-soluong-0" onKeyPress="return isNumberKey(event)" name="soluongMua" type="text" value="1" min="1">
+                        <span class="sp-cong">+</span>
+                    </div>
+                    <div class="product_detail-item-action mb-46" id="action_cart">
+                
+                    </div>
+
+                    <div class="product-detail-bottom">
+                        <div class="product-detail-bottom-top" data-toggle="collapse mt-4">
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
+                        <div class="product-detail-bottom-content-form" >
+                            <div class="product-detail-bottom-content-form-title">
+                                <div class="product-detail-bottom-content-form-title-item mota product-bottom-active">
+                                    <p>Mô tả</p>
+                                </div>
+                                <div class="product-detail-bottom-content-form-title-item baoquan">
+                                    <p>Bảo quản</p>
+                                </div>
+                                <div class="product-detail-bottom-content-form-title-item thamkhao">
+                                    <p>Tham khảo size</p>
+                                </div>
+                            </div>
+
+                            <div class="product-detail-bottom-content">
+                                <div class="product-detail-bottom-content-mota ">
+                                    - CHẤT LIỆU: KATE thuộc nhóm những loại vải tổng hợp. Là sự kết hợp giữa những sợi bông trên vải tự nhiên cotton và sợi polyester nhân tạo.<br><br>
+                                    - TÍNH CHẤT: Khả năng thấm hút tốt, vải không bi nhăn, mặt vải phẳng và mịn với tính chất này việc giặt ủi trở nên đơn giản và dễ dàng hơn nhiều.<br><br>
+                                </div>
+                                <div class="product-detail-bottom-content-baoquan">
+                                        - CÁCH GIẶT VÀ BẢO QUẢN: Lật mặt trong của sản phẩm ra trước khi giặt. Khi phơi nên chọn chỗ thoáng khí có nhiều gió tránh ánh nắng trực tiếp chiếu vào. Không nên sử dụng các chất tẩy rửa mạnh để giặt sản phẩm cũng như không nên đổ trực tiếp vào sản phẩm.<br><br>
+                                </div>
+                                <div class="product-detail-bottom-content-thamkhao">
+                                    - Size S: 40 - 47kg<br>
+                                    - Size M: 47 - 55kg<br>
+                                    - Size L: 55kg - 65kg<br> 
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- Product-related---- -->
+<div class="product-related container-fluid">
+    <div class="product-related-title">
+        <p>Sản phẩm liên quan</p>               
+    </div>
+
+    <div class ="product-content2" id="product_list_lienquan">
+        
+    </div>
+</div>
+<!--End: Detail Product-->
+@section Scripts{
+    <script src="~/Script/Customer/Detail.js"></script>
+}
